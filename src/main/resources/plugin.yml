@@ -1,0 +1,6 @@
+name: ProjectileManipulation
+version: 1.0
+author: Excel#8392
+description: Trial plugin for GodComplex, manipulate projectiles.
+main: com.gmail.excel8392.projectilemanipulation.ProjectileManipulation
+api-version: 1.13

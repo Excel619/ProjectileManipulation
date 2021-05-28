@@ -1,9 +1,12 @@
-package com.gmail.excel8392.projectilemanipulation;
+package com.gmail.excel8392.projectilemanipulation.entity;
 
 import org.bukkit.entity.Entity;
 
 import javax.annotation.Nullable;
 
+/**
+ * Represents an entity that is being manipulated by this plugin.
+ */
 public interface ManipulatedEntity {
 
     /**
@@ -21,10 +24,5 @@ public interface ManipulatedEntity {
      * Returns false if projectile has been destroyed/invalidated
      */
     boolean isValid();
-
-    /**
-     * Gets the unique manipulated-projectile identifier for all projectiles of this type
-     */
-    String getIdentifier();
 
 }

@@ -1,11 +1,17 @@
-package com.gmail.excel8392.projectilemanipulation;
+package com.gmail.excel8392.projectilemanipulation.command;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Subcommand;
+import com.gmail.excel8392.projectilemanipulation.entity.projectile.ManipulatedArrow;
+import com.gmail.excel8392.projectilemanipulation.entity.projectile.ManipulatedEgg;
+import com.gmail.excel8392.projectilemanipulation.entity.projectile.ManipulatedEnderpearl;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
+/**
+ * Huge parameter dump for testing and tweaking and demos
+ */
 @CommandAlias("projectilemanipulation|pm|projm")
 public class ProjectileManipulationCommand extends BaseCommand {
 

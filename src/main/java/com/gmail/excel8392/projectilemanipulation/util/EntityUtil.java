@@ -1,4 +1,4 @@
-package com.gmail.excel8392.projectilemanipulation;
+package com.gmail.excel8392.projectilemanipulation.util;
 
 import io.papermc.lib.PaperLib;
 import org.bukkit.Location;
@@ -67,13 +67,13 @@ public class EntityUtil {
 
     /**
      * Uses vector math to see if an entity is looking at a second entity.
+     * TODO: This doesn't exactly work well with different sizes of mobs, but it is good enough for now
      */
     public static boolean isLookingAt(LivingEntity entity1, LivingEntity entity2) {
         Vector difference = entity2.getEyeLocation().toVector().subtract(entity1.getEyeLocation().toVector()); // Get difference between entity one eye location and entity two eye location as vector
         double angleAccuracy = Math.max(0.14 - difference.length() * 0.0065, 0.03); // Arbitrary calculation to make distance scale with accuracy requirement
-        return entity1.getEyeLocation().getDirection().angle(difference) < angleAccuracy;
         // Get angle between direction of entity one and the difference vector and compare with arbitrary double in radians indicating accuracy
-        // TODO: This doesn't exactly work well with different sizes of mobs, but it is good enough for now
+        return entity1.getEyeLocation().getDirection().angle(difference) < angleAccuracy;
     }
 
     /**
@@ -83,6 +83,7 @@ public class EntityUtil {
      */
     public static CompletableFuture<LivingEntity> getLookingAt(LivingEntity entity, double radius) {
         CompletableFuture<LivingEntity> future = new CompletableFuture<>();
+        // Search for all nearby entities, then check to see if the player is looking at them
         getNearbyEntities(entity.getEyeLocation(), radius, true).thenAccept(entities -> {
             for (Entity nearbyEntity : entities) {
                 if (!(nearbyEntity instanceof LivingEntity)) continue;
@@ -91,7 +92,7 @@ public class EntityUtil {
                     return;
                 }
             }
-            future.complete(null);
+            future.complete(null); // Couldn't find any we were looking at
         });
         return future;
     }

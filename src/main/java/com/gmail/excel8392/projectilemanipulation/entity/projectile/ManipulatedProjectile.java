@@ -1,10 +1,15 @@
-package com.gmail.excel8392.projectilemanipulation;
+package com.gmail.excel8392.projectilemanipulation.entity.projectile;
 
+import com.gmail.excel8392.projectilemanipulation.entity.ManipulatedEntity;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 
 import javax.annotation.Nullable;
 
+/**
+ * Represents an entity that is being manipulated by the plugin,
+ * with the added bonus that it is a projectile and has a target location
+ */
 public abstract class ManipulatedProjectile implements ManipulatedEntity {
 
     private final Entity entity;
